@@ -4,6 +4,7 @@ import com.realdolmen.greeting.domain.Employee;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
 /**
@@ -15,6 +16,10 @@ import javax.faces.bean.RequestScoped;
 public class EmployeeForm {
 
     private Employee employee;
+
+    @ManagedProperty("#{employeeList}")
+    private EmployeeList employeeList;
+
 
 
     @PostConstruct
@@ -30,9 +35,20 @@ public class EmployeeForm {
         this.employee = employee;
     }
 
+    public EmployeeList getEmployeeList() {
+        return employeeList;
+    }
+
+    public void setEmployeeList(EmployeeList employeeList) {
+        this.employeeList = employeeList;
+    }
+
     public String saveEmployee(){
         System.out.println(employee.toString());
-        return null;
+        employeeList.addEmployee(employee);
+        employee=new Employee();
+        return "employeeList.xhtml?faces-redirect=true";
+
 
     }
 }

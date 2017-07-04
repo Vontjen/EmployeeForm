@@ -12,7 +12,26 @@
 			<p>There are no employees yet...</p>
 		</h:panelGroup>
 
-	<!-- TODO Update page with PrimeFaces components, use p:datatable, and p:button -->
+		<p:dataTable var="employee" value="#{employeeList.employees}" rendered="#{not empty employeeList.employees}">
+
+            <p:column>
+                <f:facet name="header">Fist Name</f:facet>
+                <h:outputText value="#{employee.firstName}"/>
+            </p:column>
+
+            <p:column>
+                <f:facet name="header">Last Name</f:facet>
+                <h:outputText value="#{employee.lastName}"/>
+            </p:column>
+
+            <p:column>
+                <f:facet name="header">email</f:facet>
+                <h:outputText value="#{employee.email}"/>
+            </p:column>
+
+		</p:dataTable>
+
+		<p:button value="Add Employee" outcome="employeeForm"/>
 		
 
 	</p:panel>
