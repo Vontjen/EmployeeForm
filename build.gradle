@@ -26,7 +26,4 @@ dependencies {
 gretty{
     servletContainer='tomcat8'
     httpPort=8080
-    scanInterval=1
-    managedClassReload=true
-    fastReload=true
 }
