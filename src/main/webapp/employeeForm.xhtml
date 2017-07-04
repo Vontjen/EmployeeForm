@@ -11,8 +11,20 @@
 	<h:form>
 		<p:panel header="Employee Form">
 			<h:panelGrid columns="3" cellpadding="4">
-				<!-- TODO Update page with PrimeFaces components, use p:inputText, p:message and p:commandButton -->
+
+				<h:outputLabel value=" First Name:" for ="firstName" />
+				<p:inputText id="firstName" value = "#{employeeForm.employee.firstName}"/>
+				<p:message for="firstName"/>
+
+				<h:outputLabel value=" Last Name:" for ="lastName" />
+				<p:inputText id="lastName" value = "#{employeeForm.employee.lastName}"/>
+				<p:message for="lastName"/>
+
+				<h:outputLabel value=" Email:" for ="email" />
+				<p:inputText id="email" value = "#{employeeForm.employee.email}"/>
+				<p:message for="email"/>
 			</h:panelGrid>
+            <p:commandButton value="Save" action="#{employeeForm.saveEmployee()}" update = "@form"/>
 		</p:panel>
 	</h:form>
 
