@@ -1,0 +1,24 @@
+
+
+plugins {
+  id 'org.akhikhl.gretty' version '1.4.2'
+  id 'war'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+    providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+    compile 'com.sun.faces:jsf-api:2.2.14'
+    compile 'com.sun.faces:jsf-impl:2.2.14'
+    compile 'org.primefaces:primefaces:6.0'
+    compile 'org.hibernate:hibernate-validator:5.4.1.Final'
+
+}
+
+gretty{
+    servletContainer='tomcat8'
+    httpPort=8080
+}
